@@ -1,29 +1,43 @@
 #include <stdio.h>
-int sumTwo(int a, int b) {
-	
-	return a + b;
-	
-}
 
-int square(int n) {
-	return n * n;
-}
-
-int get_max(int x, int y) {
-	if (x < y) 
-		return y;
-	else {
-		return x;
+	
+int factorial(int n) {
+	int f = 1;
+	for (int i = 1; i <= n; i++) {
+		f *= i;
 	}
+	return f;
+
 }
-int main(void) {
+
+int combination(int n,int r) {
+	int div1 = factorial(n); //n!
+	int div2 = factorial(n-r)*factorial(r);
+	return div1 / div2;
+
+}
+
+int main()
+{	
+	int n, r;
+	int result = 0;
+
+	//1. 식 보여주기
+	printf("CALCULATE : factorial(n) / (factorial(n-r) * factorial(r)\n");
+
+	//2. n값 입력받기
+	printf("input n :  : ");
+	scanf_s("%i", &n);
+
+	//3. r값 입력받기
+	printf("input r : ");
+	scanf_s("%i", &r);
 	
+	//결과계산
+	result=combination(n, r);
 	
-	printf("sumTwo result : %i\n", sumTwo(2, 3));
-	printf("squre result : %i\n", square(3));
-	printf("get_max : %i\n", get_max(5, 10));
 
-
-
-	return 0;
+	//4. 결과출력 
+	printf("RESULT = %i", result);
+	
 }
